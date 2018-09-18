@@ -1,0 +1,571 @@
+
+GIT
+--------------------------------------------------------------------------------------------------------------	
+
+|Remote|<--push--|Local machine|<--commit--|staging area|<--add--|working copy|
+	--clone/Pull-->
+
+	- Git clone is copy entire repository to work on this ex-- copy repo to eclipse to work but it usually once we do this.
+	- Git pull only changes/ updated data to take from git.
+
+--------------------------------------------------------------------------------------------------------------
+
+Git-VCS - Version Control System.
+	- Design to handle everything from small to large project with speed and effeciency.
+	- To track changes in files / folders.
+	- To collaborate in teams.
+	- free and open souce.
+	- Distributed VCS(We will have own copy in our PC so without  offline we can work with it.
+	- Pull and push required internet.
+	- Git can use with any online repository management like GitHub, Bitbucket, GitLab
+
+--------------------------------------------------------------------------------------------------------------
+
+GIT HUB - It is a website to upload your repository.
+	- Provides backup (On cloud)
+	- Provides visual interface (GUI)
+	- It makes collaboration easily(Like make private / public and easily share with team)
+	- Git hub is not related to GIT.
+	- Git Hub is just website where you can put your repositories..
+	- Git Hub can use with any VCS like Git CVS, SVN(SubVersion),  Mercurial,  Mercurial.
+	- CSV and SVN is centralized, so only one master copy of s/w is used.
+
+--------------------------------------------------------------------------------------------------------------
+git commands
+--------------
+
+git --version
+git config --global user.email "dhanu.mcd@gmail.com"
+git config --global user.name "dhananjayadn"
+git init
+git status
+git add . /git add */git add filename
+git commit -m "related message"
+git remote add origin https://github.com/dhananjayadn/Repo1.git
+git push -u origin master
+git --help
+git log
+
+
+git --version	- To check Git is installed or not in command prompt type.
+
+		-- Create a folder and goto that location in cmd and do below commands.
+
+
+
+git init	- To initialize the git or to track files / folders.
+
+		--hidden file will generate after init.
+
+git status	- To see the status of git files / folders.
+
+		-- Now status will show nothing to commit.
+
+		-- Now lets create a text file (short cut in cmd  dir > filename.txt)
+
+		-- Now again do git status it wil show untracked file present.
+	
+git add .	- to add file to and ready to be commited.
+git add filename
+git add *
+
+
+
+git commit -m "message"	- It commit to our local machine.
+
+git remote add origin https://github.com/dhananjayadn/Repo1.git
+
+git push -u origin master
+
+git --help
+
+git log
+
+
+
+--------------------------------------------------------------------------------------------------------------
+3.Git command auto complete in mac/linux
+--------------------------------------
+
+
+-put git-completion.bash script to your home dir.
+-add .bash_profile scipt(it tells .bash to run git-completion.bash script if it exist)
+
+vi ~/.bash_profile
+
+if [ -f ~/.git-completion.bash ]; then
+.~/.git-completion.bash
+fi
+
+
+
+--------------------------------------------------------------------------------------------------------------
+to enable color
+---------------
+
+
+to check color already enabled
+
+git config color.ui
+
+if above command is false then we have to enable it
+
+git config --global color.ui true
+
+
+
+--------------------------------------------------------------------------------------------------------------
+Branch and Merge
+----------------
+
+
+git branch MyBranch		--Create branch
+git checkout MyBranch		--Change branch
+git branch			--Check current branch
+
+git checkout master		--To merge Mybranch to master branch 
+git merger MyBranch	
+git push -u origin master	--To push merged code to Repo
+
+
+git branch -d MyBranch		-- To delete branch from local 
+git push origin --delete MyBranch	-- To delete branch or Repo
+
+
+--------------------------------------------------------------------------------------------------------------
+Email notification from github
+------------------------------
+
+Goto github account 
+goto repository
+goto setting
+goto integration and services
+goto add service(type email)
+fill address(email which you want)
+select send from address then add service
+
+
+--------------------------------------------------------------------------------------------------------------
+Git tag
+--------
+
+Mark for stable code like version1 version2 ... to reference in future
+
+git init
+git checkout master
+git tag v1.0		--git tag tagname is used to create tag
+git tag -a v1.1 -m "tag for release version 1.1" 	-- used to create anotation tag with message
+git tag			-- To Display all tags
+git show v1.o		-- To Display the tag
+git show -l v1.*	-- Display all tag using wildcard tags
+git push origin v1.0	-- To push tag to remote
+git push --tags		-- To push all tags at once to remote
+or
+git push origin --tags
+
+git tag -d v1.0		-- To delete tag locally
+or
+git tag --delete v1.0
+
+
+git push origin -d v1.0	   -- To delete tag from remote
+or
+git push origin --delete v1.0
+or
+git push origin :v1.0
+
+
+git tag -d v1.0 v1.1 		--To delete multiple tag locally
+git push origin -d v1.0 v1.1 	-- To delete multiple tag remotely
+
+
+There is no concept of checkout tag
+we cannot checkout tags in git
+we can create a branch from a tag and checkout the branch
+
+
+can i create a tag from some past commit?
+ans:- yes
+
+git tag <tagname> <reference of commit>  //entire 40 digit is not required we can give initial some value thats enaugh
+
+
+git tag v0.1 d23f7880006d0bd5a26c5480f37db5ebb4280547
+
+or
+
+git tag v0.1 d23f788
+	
+==============================================================================================================
+
+
+
+
+
+
+
+Developer will define all the applications and its dependencies and requirements in a file called Docker file.Dockerfile is used to create a docker images.
+
+Docker image we will have all the applications and its requirements and dependencies. When we run a docker image we will get docker container
+
+
+Easy to portable from one platform to other.
+Ex: Deployed in Amazon it can easily portable to VMWare.
+Docker can be use with version control.
+Every application work with own container and does not interfere  with other container.
+
+
+Docker conatiner will have application with all its dependencies.
+Docker container are runtime instances of docker image.
+These images also stored in online cloud repositories called Docker Hub.
+
+Docker hub to store images and these images pulled to any environment so we can create docker container in test environment or any other environment. 
+
+ 
+
+Virtualization
+Hypervisor is used to create multiple virtual machines(guest os) on top we create application.
+
+These Virtual machines have own OS and does not use Host OS.
+
+We need to alloacte Fixed memory and space to every virtual machines so there is a lot of wastage of memory and space.
+
+Container
+We have Container Engine.
+We dont have seperate OS.
+But we have containers where we have application and all its dependencies and it use Host OS.
+
+Here space and memory and other resources not fixed. It wil taken as per the applications requirement.So no wastage and very lightweight and fast.
+
+
+If we want to run linux OS so we have to have VM and on top we have Container and we will run.
+
+
+
+
+
+Docker Client is command line interface which is used to give command to server.
+
+
+Docker  server receive commands in the form of commands or rest api request.
+
+Docker client + Docker Server = Docker Engine
+
+
+
+
+========================
+Docker basic commands
+
+docker				-- it show docker commands
+docker version			-- give version of client, server etc.
+docker -v 			-- give version of docker
+docker --version		-- to display docker version
+docker info			-- little detail about docker like no of container running , plugin info, driver 				   deatis, system time, proxy etc...
+docker --help			-- to get any other command info
+docker images --help 		-- it will give all details of docker images
+docker login			-- used to create docker hub using username and password of docker hhub which i have created
+
+
+
+Docker Images
+-------------
+Images are template used to create docker container.
+Images stored in Registries(e.g. dockerhub)
+
+
+
+
+
+
+1)docker image 			-- List all the images that we have
+    docker images -q		-- display only id of images
+    docker images -a 		-- all details of images
+
+2)docker pull imagename		-- Pull image from docker hub or locally(by default it takes "latest" tag
+    ex:- docker full ubuntu
+
+3)docker pull imagename:tag	-- pull images with particular tag/version
+   ex:docker pull ubuntu:18.04 
+
+4)docker rmi  imageid		-- remove image 
+    docker rmi -f imageid	--remove image forcefully
+
+
+5)docker run ubuntu		-- it create a container(not running just create)
+
+6)docker run -it ubuntu 	-- it will run container
+or 
+docker run --name myubuntu -it ubuntu	-- to give name to container
+
+7)docker inspect imagename	-- images are stack layer to display details of images
+
+
+
+docker container
+---------------
+
+Container is a running instance of images.
+Container is lightweight, stand alone. executable package of a piece of s/w that include everyuthing needed to tun it.(Runtime, system tools, libraries, setting)
+
+features
+
+*)lightwight
+*)less resources are used
+*)booting of container very fast
+*)can start stop kill remove container easily and fast
+*)OS resouces can be shared within docker
+*)container run on same machine sharing the same OS kernel this makes it faster
+
+
+1)docker ps			-- list the running containers
+    docker ps -a		-- list all container
+
+2)docker run imagename		-- If not find locally then start pull form remote
+ex:- docker run ubuntu
+
+3)docker run -it imagename	-- In interactive mode of ubuntu(we can run ubuntu command)
+ex:- docker run -t ubuntu
+
+4)docker start containerid/name	-- start container
+
+5) docker stop conatinerid/name	-- stop container
+
+6) docker pause conatinerid/name-- pause container(if u type it wont take)
+
+7)docker unpause conatinerid/name--unpause container
+
+8)docker top containerid/name  	-- top process
+
+9)docker stat containerid/name	-- memory input output etc..
+
+10) docker attach dockerid/name	-- to attach container to run
+
+11) docker kill containerid/name-- to kill container
+
+12) docker rm containerid/name 	-- to remove container
+
+13)docker history imagename/id	--history of particular image
+
+
+
+
+system commands
+--------------
+
+docker stat			-- Details on running container, memory i/o, network so on..
+docker system df		-- Disk usage of docker(images, container, local volume, build cache ...)
+docker system prune		--remove all stopped container and network
+	-a remove all unused
+	-f force remove
+
+
+
+
+
+Dockerfile
+------------
+
+A text file with instruction to build/create own images
+Its automation of docker image creation
+
+1)Create a file named Dockerfile
+
+mkdir Dockerfolder
+cd Dockerfolder
+touch Dockerfile
+vi Dockerfile
+
+
+2)add instruction in dockerfile
+
+#Getting base image from ubuntu
+FROM ubuntu
+MAINTATINER Dhananjaya D N <dhanu.mcd@gmail.com>
+RUN opt-get update
+CMD ["echo", Hello world!! from my first docker image]
+
+
+3)Build the dockerfile to create image
+
+docker build .
+or docker build -t myimage:1.0 .
+
+4)run image to create container
+
+docker run imageid
+
+#it wil display Hello world!! from my first docker image
+
+
+diff bw run and cmd 
+RUN is executed during building of docker file
+CMD only execute when u create container on it
+
+
+
+
+Docker compose
+-------------------
+ex flipcart account cart etc..
+
+by default will be installed in mac and windows with docker
+
+*)Its a tool for defining and running multi-container docker applications
+*)use yaml files to config application services(docker-compose.yaml)
+*)can start all services with a single command(docker-compose up)
+*)can stop all service with a single command(docker-compose down)
+*)can scal up selected services when required
+
+1)check version or insatlled or not
+docker-compose -v	
+
+
+2) create docker-compose file
+mkdir DockerComposeFolder
+cd DockerComposeFolder
+touch docker-compose.yml
+vi docker-compose.yml
+
+
+version:'3'
+services:
+	web:
+		image:apache
+		port:
+	       -9090:80
+	database:
+		image:mysql
+
+
+
+3)check the validity of file
+
+docker-compose config		
+
+
+4) Run docker-compose.yml file by command
+-d detach
+docker-compose up -d
+
+now goto browser and do localhost:9090
+
+
+5)bring dowm application by command
+
+docker-compose down
+
+
+6)to scale the applications
+
+docker-compose up -d --scale database=4
+
+
+
+-----------------
+docker volume
+-------------
+
+*)In docker whenever we create container they has to be place where the data for container to be stored.
+*)If u don't give any volume/location to container, all data will be stored within the container(writable container layer), so when you read or remove the container the data will be lost.
+*)if we dont want to lost data we use voulumes.
+*)these data will be share between the container, and using old data we can create new containers.
+
+
+
+
+docker volume create myvolume		--to create a volume
+docker volume ls			--to list the volumes
+docker volume inspect myvolume		--to display detailes(it display when it created driver etc...in json)
+docker volume rm myvolume		--remove volume
+docker volume prune			--remove all volume which is not running/unused
+
+
+
+ex : - jenkins
+docker pull jenkins
+docker run --name myjenkins -v myvol1:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins
+
+the below one will take data from above volume and stored in my local machine
+
+docker run --name myjenkins1 -v myvol1:c:\Desktop\jenkins_home -p 9090:8080 -p 40000:50000 jenkins
+
+
+
+------------------------------
+docker image
+docker pull imagename
+docker pull imagename:tagname
+docker rmi imageid
+docker rmi imagid:tagname
+docker inspect imagename
+docker stop -f imageid/myimagename
+docker run imagename
+docker run --name myimagename -it imagename
+docker start containerid/name
+docker stop conatinerid/name
+docker pause conatinerid/name
+docker unpause conatinerid/name
+docker top containerid/name
+docker stat containerid/name
+docker attach dockerid/name
+docker kill containerid/name
+docker rm containerid/name
+docker history imagename/id
+
+
+
+
+============================================================================================================================================================
+============================================================================================================================================================
+Selenium
+=========
+Selenium is a tool, which contains set of library and it will automate the web browsers.
+
+
+Features
+--------
+Open source
+Flexible and extensible
+Multiple langauage supported
+Multiple Browser supported
+
+
+Components of Selenium(4 types)
+----------------------
+Selenium IDE
+Selenium RC(Remote control)
+WebDriver
+Selenium Grid
+
+Selenium IDE= Record and playback plugin for firefox . Used for quick prototype testing
+Selenium RC= know as selenium1  not actively supported now, Used to execute script(written in any language) using javascript
+WebDriver=Most actively used component today for many frameworks, and its an API used to send command directly to the browser. its also know as selenium 2.
+Selenium Grid=it provide a capabilities is to run our test in parallel across different machines and different browser simultaneouly. Used to minimize execution time.
+
+
+
+WebDriver
+---------
+Technically, webdriver is an interface that consists of all methods that can be invoked on a browser.
+All browser classes implements this interface so we have consistency across browsers.
+ 
+Gecko Driver
+------------
+it is a web browser engine developed by mozilla and written in c++ and opensource.
+Web browser engine is software program used to control the web browser contnent.  
+Gecko driver is a proxy to intercat with gecko based browser( like firefox).
+FirefoxDriver()  internally call MarionetteDriver().... so u can use any of these in ur program
+MarionetteDriver is an automation driver for mozilla gecko engine. it can remotely control either UI or internal javascript of gecko platform such as firefox.
+
+chrome driver
+---------------
+its for chrome
+
+
+HtmlUnit Driver also headless browser automation
+PhantomJS is headless browser(in windows it run backend, without gui)
+
+
+ghostdriver it interact b/w selenium nd phantomjs.
+its test runner to run selenium test on phantomjs browsers.
