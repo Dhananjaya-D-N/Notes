@@ -124,7 +124,7 @@ git checkout MyBranch		--Change branch
 git branch			--Check current branch
 
 git checkout master		--To merge Mybranch to master branch 
-git merger MyBranch	
+git merge MyBranch	
 git push -u origin master	--To push merged code to Repo
 
 
