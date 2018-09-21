@@ -15,7 +15,7 @@ Git-VCS - Version Control System.
 	- To track changes in files / folders.
 	- To collaborate in teams.
 	- free and open souce.
-	- Distributed VCS(We will have own copy in our PC so without  offline we can work with it.
+	- Distributed VCS(We will have own copy in our PC so without internet we can work with it(oflline).
 	- Pull and push required internet.
 	- Git can use with any online repository management like GitHub, Bitbucket, GitLab
 
